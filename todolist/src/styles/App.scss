@@ -1,0 +1,69 @@
+#todolist-root {
+    background-color: #f1f2f6;
+    height: 100vh;
+    
+    .todolist-container {
+        width: 800px;
+
+        .todolist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .todolist-form {
+            display: flex;
+            margin: 10px 0;
+            justify-content: center;
+
+            .priority-select {
+                margin-left: 20px;
+                width: 140px;
+            }
+
+            .sort-select {
+                margin-left: 20px;
+                width: 200px;
+            }
+
+            .add-button {
+                margin-left: 10px;
+                height: 55px;
+            }
+        }
+    }
+
+    .task-container {
+        $LOW_PRIORITY: #55efc4;
+        $NORMAL_PRIORITY: #ffeaa7;
+        $HIGH_PRIORITY: #ff7675;
+
+        justify-content: space-between; 
+        align-items: center;
+        display: flex;
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 10px;
+
+        &.low_prio { background-color: $LOW_PRIORITY }
+        &.norm_prio { background-color: $NORMAL_PRIORITY }
+        &.high_prio { background-color: $HIGH_PRIORITY }
+
+        .task-details {
+            display: flex; 
+            align-items: center;
+
+            .task-label {
+                cursor: pointer;
+                &.task_complete {
+                   text-decoration: line-through;
+                }
+            }
+
+            .remove-icon {
+                cursor: pointer;
+            }
+        }
+    }
+
+}

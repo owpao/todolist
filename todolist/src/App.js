@@ -1,3 +1,4 @@
+import "./styles/App.scss"
 import { Container } from '@mui/material'
 import { useEffect, useState } from 'react'
 import './App.css'
@@ -34,7 +35,7 @@ function App() {
         break
       }
       case "NAME_DESC": {
-        sortedItems = todoListData.items.sort((a,b) => a.taskName.localeCompare(a.taskName))
+        sortedItems = todoListData.items.sort((a,b) => b.taskName.localeCompare(a.taskName))
         break
       }
       default:{
@@ -59,14 +60,8 @@ function App() {
   }
 
   return (
-    <Container style={{ width: 800 }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+    <Container className='todolist-container'>
+      <div className='todolist-header'>
         <h1>TO-DO List</h1>
         <h4>
           Completed:{" "}

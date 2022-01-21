@@ -3,7 +3,7 @@ import {Button, FormControl, InputLabel, MenuItem, Select, TextField, FormHelper
 
 
 const TodoListForm = ({todoListData, setTodoList}) => {
-  const [newTask, setNewTask] = useState({id:0, taskName: "", priority:-1, isComplete:false})
+  const [newTask, setNewTask] = useState({taskName: "", priority:-1, isComplete:false})
   const [formValidation, setFormValidation] = useState({
     taskNameHelperText: "",
     isTaskNameError: false,
@@ -94,9 +94,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
 
 
     return (
-      <div
-        style={{ display: "flex", margin: "10px 0", justifyContent: "center" }}
-      >
+      <div className='todolist-form'>
         <TextField
           name="taskName"
           error={formValidation.isTaskNameError}
@@ -109,7 +107,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
           helperText={formValidation.taskNameHelperText}
         />
 
-        <FormControl style={{ marginLeft: 20, width: 140 }} error={formValidation.isPriorityError}>
+        <FormControl className='priority-select' error={formValidation.isPriorityError}>
           <InputLabel id="priority-select">Priority</InputLabel>
           <Select
             name="priority"
@@ -129,7 +127,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
           <FormHelperText>{formValidation.selectHelperText}</FormHelperText>
         </FormControl>
 
-        <FormControl style={{ marginLeft: 20, width: 200 }}>
+        <FormControl className='sort-select'>
           <InputLabel id="sort-select">Sort By</InputLabel>
           <Select
             name="sort"
@@ -148,8 +146,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
           </Select>
         </FormControl>
 
-        <Button
-          style={{ marginLeft: 10, height: 55}}
+        <Button className='add-button'
           disabled={newTask.taskName.length <= 0 || newTask.priority < 0}
           variant="contained"
           onClick={handleAddClick}
