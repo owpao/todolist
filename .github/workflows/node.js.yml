@@ -9,13 +9,12 @@ on:
   pull_request:
     branches: [ master ]
 
-defaults:
-  run:
-    working-directory: ./todolist
-
 jobs:
-  build:
+  defaults:
+    run:
+      working-directory: ./todolist
 
+  build:
     runs-on: ubuntu-latest
 
     strategy:
