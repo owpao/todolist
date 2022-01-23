@@ -95,7 +95,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
 
     return (
       <div className='todolist-form'>
-        <TextField
+        <TextField className='taskName-input'
           name="taskName"
           error={formValidation.isTaskNameError}
           label="Task Name"
@@ -110,6 +110,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
         <FormControl className='priority-select' error={formValidation.isPriorityError}>
           <InputLabel id="priority-select">Priority</InputLabel>
           <Select
+            data-testid='priority-select'
             name="priority"
             labelId="priority-select"
             value={newTask.priority}
