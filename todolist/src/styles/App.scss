@@ -1,11 +1,9 @@
 #todolist-root {
-    background-color: #f1f2f6;
-    height: 100vh;
     
     .todolist-container {
-        width: 800px;
-
+        place-content: center;
         .todolist-header {
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -13,21 +11,25 @@
 
         .todolist-form {
             display: flex;
-            margin: 10px 0;
+            margin: 10px;
             justify-content: center;
 
+            .taskName-input {
+                margin: 10px;
+            }
+
             .priority-select {
-                margin-left: 20px;
+                margin: 10px;
                 width: 140px;
             }
 
             .sort-select {
-                margin-left: 20px;
+                margin: 10px;
                 width: 200px;
             }
 
             .add-button {
-                margin-left: 10px;
+                margin: 10px;
                 height: 55px;
             }
         }

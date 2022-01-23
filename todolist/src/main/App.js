@@ -1,17 +1,11 @@
 import "../styles/App.scss"
-import { Container } from '@mui/material'
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import Todolist from './Todolist'
 import TodoListForm from './TodoListForm'
+import Grid from "@mui/material/Grid"
 
 const items = {sortMode: "",
-  items: [
-  // { id: 1, taskName: "item 1", isComplete: false, priority:0 },
-  // { id: 2, taskName: "item 2", isComplete: false, priority:1 },
-  // { id: 3, taskName: "item 3", isComplete: false, priority:1 },
-  // { id: 4, taskName: "item 4", isComplete: false, priority:2 },
-  // { id: 5, taskName: "item 5", isComplete: false, priority:0 }
-]
+  items: []
 }
 
 function App() {
@@ -59,7 +53,8 @@ function App() {
   }
 
   return (
-    <Container className='todolist-container'>
+    <Grid container className='todolist-container'>
+      <Grid item xl={8} xs={12}>
       <div className='todolist-header'>
         <h1>TO-DO List</h1>
         <h4>
@@ -68,15 +63,20 @@ function App() {
           {todoListData.items.length}
         </h4>
       </div>
+      </Grid>
 
-      <TodoListForm setTodoList={setTodoList} todoListData={todoListData} />
+      <Grid item xl={8} xs={12}>
+        <TodoListForm setTodoList={setTodoList} todoListData={todoListData} />
+      </Grid>
 
-      <Todolist
-        todoListData={todoListData.items}
-        handleToggleTask={toggleCompleteTask}
-        handleDeleteTask={handleDeleteTask}
-      />
-    </Container>
+      <Grid item xl={8} xs={12}>
+        <Todolist
+          todoListData={todoListData.items}
+          handleToggleTask={toggleCompleteTask}
+          handleDeleteTask={handleDeleteTask}
+        />
+      </Grid>
+    </Grid>
   );
 }
 

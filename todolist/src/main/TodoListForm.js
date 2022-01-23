@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import {Button, FormControl, InputLabel, MenuItem, Select, TextField, FormHelperText} from '@mui/material'
+import Grid from "@mui/material/Grid"
 
 
 const TodoListForm = ({todoListData, setTodoList}) => {
@@ -94,7 +95,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
 
 
     return (
-      <div className='todolist-form'>
+      <Grid container className='todolist-form'>
         <TextField className='taskName-input'
           name="taskName"
           error={formValidation.isTaskNameError}
@@ -154,7 +155,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
         >
           Add Task
         </Button>
-      </div>
+      </Grid>
     );
 }
 
