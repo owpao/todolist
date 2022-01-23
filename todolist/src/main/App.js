@@ -1,23 +1,22 @@
-import "./styles/App.scss"
+import "../styles/App.scss"
 import { Container } from '@mui/material'
 import { useEffect, useState } from 'react'
-import './App.css'
 import Todolist from './Todolist'
 import TodoListForm from './TodoListForm'
 
-const sample_items = {sortMode: "",
+const items = {sortMode: "",
   items: [
-  { id: 1, taskName: "item 1", isComplete: false, priority:0 },
-  { id: 2, taskName: "item 2", isComplete: false, priority:1 },
-  { id: 3, taskName: "item 3", isComplete: false, priority:1 },
-  { id: 4, taskName: "item 4", isComplete: false, priority:2 },
-  { id: 5, taskName: "item 5", isComplete: false, priority:0 }
+  // { id: 1, taskName: "item 1", isComplete: false, priority:0 },
+  // { id: 2, taskName: "item 2", isComplete: false, priority:1 },
+  // { id: 3, taskName: "item 3", isComplete: false, priority:1 },
+  // { id: 4, taskName: "item 4", isComplete: false, priority:2 },
+  // { id: 5, taskName: "item 5", isComplete: false, priority:0 }
 ]
 }
 
 function App() {
   
-  const [todoListData, setTodoList] = useState(sample_items)
+  const [todoListData, setTodoList] = useState(items)
   
   useEffect(()=>{
     let sortedItems= []
