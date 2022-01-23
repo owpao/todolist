@@ -10,11 +10,10 @@ on:
     branches: [ master ]
 
 jobs:
-  defaults:
-    run:
-      working-directory: ./todolist
-
   build:
+    defaults:
+      run:
+        working-directory: ./todolist
     runs-on: ubuntu-latest
 
     strategy:
