@@ -3,7 +3,7 @@ import Task from "./Task";
 
 const Todolist = ({ todoListData, handleToggleTask, handleDeleteTask }) => {
   return (
-    <div style={{padding: 10}}>
+    <div className='todolist-task-container'>
       {todoListData.map((item,key) => (
         <Task key={key} task={item} handleTaskClick={handleToggleTask} handleTaskDelete={handleDeleteTask} />
       ))}

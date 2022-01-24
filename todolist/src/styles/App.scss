@@ -35,6 +35,11 @@
         }
     }
 
+    .todolist-task-container {
+        padding: 20px;
+    }
+
+
     .task-container {
         $LOW_PRIORITY: #55efc4;
         $NORMAL_PRIORITY: #ffeaa7;
@@ -50,6 +55,7 @@
         &.low_prio { background-color: $LOW_PRIORITY }
         &.norm_prio { background-color: $NORMAL_PRIORITY }
         &.high_prio { background-color: $HIGH_PRIORITY }
+
 
         .task-details {
             display: flex; 

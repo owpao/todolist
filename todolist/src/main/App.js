@@ -10,7 +10,10 @@ const items = {sortMode: "",
 
 function App() {
   
-  const [todoListData, setTodoList] = useState(items)
+  const [todoListData, setTodoList] = useState(()=> {
+    const localStorageData = JSON.parse(localStorage.getItem("todoListData"))
+    return localStorageData || items
+  })
   
   useEffect(()=>{
     let sortedItems= []
@@ -40,29 +43,34 @@ function App() {
     setTodoList({...todoListData, items: sortedItems})
   }, [todoListData.sortMode])
 
+  //to store data using localstorage as a simple database
+  useEffect(()=> {
+    localStorage.setItem("todoListData", JSON.stringify(todoListData))
+  }, [todoListData])
+
   const handleDeleteTask = (id) => {
     let filteredList = todoListData.items.filter(item=>item.id !== id)
-    setTodoList({...todoListData, items:filteredList})
+    setTodoList({...todoListData, items: filteredList})
   }
 
   const toggleCompleteTask = (id) => {
     let editedList = todoListData.items.map(task => {
       return task.id === id ? { ...task, isComplete: !task.isComplete } : { ...task}
     });
-    setTodoList({...todoListData, items:editedList})
+    setTodoList({...todoListData, items: editedList})
   }
 
   return (
     <Grid container className='todolist-container'>
       <Grid item xl={8} xs={12}>
-      <div className='todolist-header'>
-        <h1>TO-DO List</h1>
-        <h4>
-          Completed:{" "}
-          {todoListData.items.filter((item) => item.isComplete).length}/
-          {todoListData.items.length}
-        </h4>
-      </div>
+        <div className='todolist-header'>
+          <h1>TO-DO List</h1>
+          <h4>
+            Completed:{" "}
+            {todoListData.items.filter((item) => item.isComplete).length}/
+            {todoListData.items.length}
+          </h4>
+        </div>
       </Grid>
 
       <Grid item xl={8} xs={12}>

@@ -20,7 +20,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
           ...todoListData.items,
           { ...newTask, id: todoListData.items.length + 1 },
         ],
-      }); 
+      })
       setNewTask({...newTask, taskName:""})
     }
   }
@@ -31,6 +31,7 @@ const TodoListForm = ({todoListData, setTodoList}) => {
     }
   }
 
+  //single onchange handler for the to do list form components
   const handleOnChange = (event) => {
     switch (event.target.name) {
       case "taskName": {
@@ -49,6 +50,8 @@ const TodoListForm = ({todoListData, setTodoList}) => {
     }
   }
 
+
+  // trigger validation for the to do list form for taskname field and priority field
   const handleBlur = (event) => {
     switch (event.target.name) {
       case "taskName": {
